@@ -1,0 +1,34 @@
+<script src="app.component.ts"></script>
+<script src="home/home.component.ts"></script>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" id="naziv" routerLink="">Distri<span class="sa">byte</span></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="albums" routerLink="/albumi"><span class="fa fa-users"></span><b> Albumi</b></a></li>
+        <li><a class="albums" [routerLink]="['/slicice']"><span class="fa fa-file-image-o"></span><b> Slicice</b></a></li>
+        <li><a class="albums" [routerLink]="['/distribucija']"><span class="fa fa-share-alt"></span><b> Distribucija</b></a></li>
+        <li *ngIf="!token">
+          <a class="albums" [routerLink]="['/nalog']"><span class="fa fa-sign-in"></span><b> Nalog</b></a>
+        </li>
+        <li *ngIf="token && token.role_name == 'admin'">
+          <a class="albums" [routerLink]="['/admin']"><span class="fa fa-lock"></span><b>  Admin</b></a>
+        </li>
+        <li *ngIf="token">
+          <a class="albums" [routerLink]="['/korpa']"><span class="fa fa-shopping-cart"></span><b> Korpa</b></a>
+        </li>
+        <li *ngIf="token">
+          <a class="albums" (click)="logout()" [routerLink]="['/']"><span class="fa fa-sign-out"></span> <b> Odjavi se</b></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

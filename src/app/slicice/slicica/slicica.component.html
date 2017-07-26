@@ -1,0 +1,36 @@
+<script src="../slicice.component.ts"></script>
+<script src="../slicice.service.ts"></script>
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Slicica
+      </h1>
+      <ol class="breadcrumb">
+        <li><a [routerLink]="['/home']">Pocetna</a></li>
+        <li><a [routerLink]="['/slicice']">Slicice</a></li>
+        <li class="active">Item</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="slicice">
+    <div class="col-md-8">
+      <div class="item active">
+      <img class="img-responsive" style="width: 50%" [src]="slicice.slika">
+      </div>
+    </div>
+
+    <div class="col-md-4" *ngIf="slicice">
+      <h3> Id slicice: {{slicice.id_slicice}}</h3>
+      <h4>Ime slicice: {{slicice.ime}}</h4>
+      <p>Broj slicice: {{slicice.broj_slicice}}</p>
+      <p>Album: {{slicice.naziv_albuma}}</p>
+      <p><i>{{slicice.detalji}}</i></p>
+      <button type="button" *ngIf="!slicice.dodato" class="btn btn-primary"
+              (click)="slicice.dodato = !slicice.dodato; addToCart(slicice.id_slicice)"> Dodaj u korpu</button>
+      <button type="button" [disabled]="slicice.dodato" *ngIf="slicice.dodato" class="btn btn-success" (click)="slicice.dodato = !slicice.dodato">Dodato u korpu</button>
+    </div>
+
+  </div>
+</div>

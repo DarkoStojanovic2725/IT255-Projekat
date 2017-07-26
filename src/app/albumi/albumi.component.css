@@ -1,0 +1,24 @@
+.albumislicice {
+  padding-top: 150px;
+}
+body {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+.panel-primary > .panel-heading-custom {
+  background-image: none;
+  background-color: #42DCA3;
+  color: #ffffff;
+}
+.panel-footer.panel-custom{
+  background: #42DCA3;
+  color: white;
+}

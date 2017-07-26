@@ -1,0 +1,12 @@
+.btn-success {
+  border: 1px solid #42DCA3;
+  color: white;
+  background-color: indianred;
+}
+.btn-success:hover,
+.btn-success:focus {
+  border: 1px solid #42DCA3;
+  outline: none;
+  color: black;
+  background-color: #42DCA3;
+}

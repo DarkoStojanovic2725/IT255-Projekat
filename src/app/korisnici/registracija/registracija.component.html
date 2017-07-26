@@ -1,0 +1,46 @@
+<script src="../korisnici.service.ts"></script>
+<form style="margin-top: 2vh;" name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+
+  <div class="form-group" [ngClass]="{'has-error': f.submitted && !username.valid}">
+    <label for="username">Username</label>
+    <input id="username" type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required/>
+    <div *ngIf="f.submitted && !username.valid" class="help-block">Username je obavezan.
+    </div>
+  </div>
+
+  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+    <label for="password">Sifra</label>
+    <input type="password" class="form-control" name="password"
+           [(ngModel)]="model.password"
+           #password="ngModel"
+           required minlength="6"/>
+    <div *ngIf="f.submitted && !password.valid" class="help-block">
+      Lozinka mora da sadrži minimum 6 karaktera.
+    </div>
+  </div>
+
+  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+    <label for="email2">Email</label>
+    <input id="email2" type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required/>
+    <div *ngIf="f.submitted && !email.valid" class="help-block">Mail nije ispravan.
+    </div>
+  </div>
+
+  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !address.valid }">
+    <label for="adresa">Adresa</label>
+    <input id="adresa" type="text" class="form-control" name="address"
+           [(ngModel)]="model.adresa"
+           #address="ngModel"
+           required/>
+    <div *ngIf="f.submitted && !address.valid" class="help-block">Adresa je obavezna.
+    </div>
+  </div>
+
+
+  <div></div>
+  <div class="form-group">
+    <button [disabled]="naCekanju" class="btn btn-success">
+      Register
+    </button>
+  </div>
+</form>

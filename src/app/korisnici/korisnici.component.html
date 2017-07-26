@@ -1,0 +1,27 @@
+<div class="userCmp">
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-6 col-md-offset-3" id="loginModal" *ngIf="!token">
+      <div class="modal-header">
+        <h1>Nalog</h1>
+      </div>
+      <div class="modal-body" style="background-color: mediumturquoise; border-radius: 10px">
+        <div class="well" style="background-color: lightcyan">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#login" data-toggle="tab">Prijavi se</a></li>
+            <li><a href="#create" data-toggle="tab">Napravi novi nalog</a> </li>
+          </ul>
+          <div id="tabContent" class="tab-content">
+            <div class="tab-pane active in" id="login">
+              <app-login></app-login>
+            </div>
+            <div class="tab-pane fade" id="create">
+              <app-registracija></app-registracija>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

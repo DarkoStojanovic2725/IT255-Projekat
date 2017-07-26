@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="page-header">Korpa</h1>
+          <ol class="breadcrumb">
+            <li><a [routerLink]="['/home']">Pocetna</a></li>
+            <li class="active">Korpa</li>
+          </ol>
+        </div>
+      </div>
+
+      <div *ngIf="porudzbina" class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Id slicice</th>
+              <th>Broj slicice</th>
+              <th>Ime slicice</th>
+              <th>Ime albuma</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let slicice of porudzbina">
+          <tr *ngIf="!slicice.dodato"
+              [ngClass]="{'is-active': slicice.dodato}">
+            <td>{{slicice.id_slicice}}</td>
+            <td>{{slicice.broj_slicice}}</td>
+            <td>{{slicice.ime}}</td>
+            <td>{{slicice.naziv_albuma}}</td>
+            <td>
+              <button class="btn btn-danger" (click)="slicice.dodato = !slicice.dodato; remove(this.slicice.id_slicice)">
+                Obrisi
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <button [disabled]="izvrseno" class="btn btn-primary" (click)="checkout()">Kupi</button>
+        <p *ngIf="izvrseno" class="alert alert-success">Slicice su narucene!</p>
+      </div>
+
+    </div>
+  </div>
+</div>
